@@ -1,12 +1,13 @@
+import { MdOutlineFavoriteBorder } from "react-icons/md";
 import { Link, NavLink } from "react-router-dom";
-import logo from '../../../assets/images/logo.png';
+import logo from "../../../assets/images/logo.png";
 
 const Navbar = () => {
-  const navlinks = (
+  const navLinks = (
     <>
       <li>
         <NavLink
-          to="/home"
+          to="/"
           className={({ isActive, isPending }) =>
             isPending ? "pending" : isActive ? "active" : ""
           }
@@ -24,21 +25,11 @@ const Navbar = () => {
           Add Products
         </NavLink>
       </li>
-      <li>
-        <NavLink
-          to="/addProducts"
-          className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "active" : ""
-          }
-        >
-          Love React
-        </NavLink>
-      </li>
     </>
   );
 
   return (
-    <div className="bg-base-100 py-1">
+    <div className="bg-green-900 py-2">
       <div className="navbar px-28">
         <div className="w-1/2 navbar-start">
           <div className="dropdown">
@@ -82,8 +73,8 @@ const Navbar = () => {
             </ul>
           </div>
           <div>
-            <Link to='/'>
-                <img src={logo} alt="" className="w-72"/>
+            <Link to="/">
+              <img src={logo} alt="" className="w-72" />
             </Link>
           </div>
         </div>
@@ -96,29 +87,31 @@ const Navbar = () => {
         </div>
         <div className="w-1/2 navbar-end">
           <div className="navbar-center hidden lg:flex">
-            <ul className="menu menu-horizontal px-1">
-              <li>
-                <a>Item 1</a>
-              </li>
-              <li tabIndex={0}>
-                <details>
-                  <summary>Parent</summary>
-                  <ul className="p-2">
-                    <li>
-                      <a>Submenu 1</a>
-                    </li>
-                    <li>
-                      <a>Submenu 2</a>
-                    </li>
-                  </ul>
-                </details>
-              </li>
-              <li>
-                <a>Item 3</a>
-              </li>
-            </ul>
+            <ul className="menu menu-horizontal px-1 gap-2 text-white">{navLinks}</ul>
           </div>
           <div className="flex justify-center items-center gap-4">
+            <div className="dropdown dropdown-end">
+              <label tabIndex={0} className="btn btn-ghost btn-circle">
+                <div className="indicator">
+                  <MdOutlineFavoriteBorder className="text-xl"/>
+                  <span className="badge badge-sm indicator-item">8</span>
+                </div>
+              </label>
+              <div
+                tabIndex={0}
+                className="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow"
+              >
+                <div className="card-body">
+                  <span className="font-bold text-lg">8 Items</span>
+                  <span className="text-info">Subtotal: $999</span>
+                  <div className="card-actions">
+                    <button className="btn btn-primary btn-block">
+                      View cart
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
             <div className="dropdown dropdown-end">
               <label tabIndex={0} className="btn btn-ghost btn-circle">
                 <div className="indicator">
