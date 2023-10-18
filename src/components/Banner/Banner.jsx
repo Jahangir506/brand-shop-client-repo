@@ -57,10 +57,10 @@ const Banner = () => {
           </div>
           <div className="absolute w-full top-1/2 transform -translate-y-1/2 px-5 flex justify-between items-center">
             <button onClick={handleOnPreviousClick} className="">
-              <FcPrevious className="bg-white/20 hover:bg-white/30 p-3 text-5xl rounded-full" />{" "}
+              <FcPrevious className="bg-white/20 hover:bg-white/30 p-3 text-orange-500 text-5xl rounded-full" />
             </button>
             <button onClick={handleOnNextClick}>
-              <FcNext className="bg-white/20 hover:bg-white/30 p-3 text-5xl rounded-full" />{" "}
+              <FcNext className="bg-white/20 hover:bg-white/30 text-orange-500 p-3 text-5xl rounded-full" />
             </button>
           </div>
         </div>

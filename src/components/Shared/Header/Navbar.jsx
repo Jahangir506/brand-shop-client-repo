@@ -33,6 +33,20 @@ const Navbar = () => {
           Add Products
         </NavLink>
       </li>
+      <li>
+        <NavLink
+          to="/login"
+          className={({ isActive, isPending }) =>
+            isPending
+              ? "pending"
+              : isActive
+              ? "text-white"
+              : " hover:bg-orange-500/50 hover:text-white"
+          }
+        >
+          Login
+        </NavLink>
+      </li>
     </>
   );
 
@@ -89,13 +103,13 @@ const Navbar = () => {
         <div className="form-control w-full">
           <input
             type="text"
-            placeholder="Type here"
-            className="input input-bordered input-sm w-full select-warning max-w-xs"
+            placeholder="Search here"
+            className="input input-bordered bg-orange-500/5 input-sm w-full select-warning max-w-xs"
           />
         </div>
         <div className="w-1/2 navbar-end">
           <div className="navbar-center hidden lg:flex">
-            <ul className="menu menu-horizontal px-1 gap-2 text-white">
+            <ul className="menu menu-horizontal px-1 gap-2 text-white font-bold">
               {navLinks}
             </ul>
           </div>
@@ -103,7 +117,7 @@ const Navbar = () => {
             <div className="dropdown dropdown-end">
               <label tabIndex={0} className="btn btn-ghost btn-circle">
                 <div className="indicator">
-                  <MdOutlineFavoriteBorder className="text-xl" />
+                  <MdOutlineFavoriteBorder className="text-xl text-orange-500 font-bold" />
                   <span className="badge badge-sm indicator-item">8</span>
                 </div>
               </label>
@@ -124,7 +138,7 @@ const Navbar = () => {
                 <div className="indicator">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5"
+                    className="h-5 w-5 text-orange-500 font-bold"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -141,7 +155,7 @@ const Navbar = () => {
               </label>
               <div
                 tabIndex={0}
-                className="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow"
+                className="z-[1] mt-8 card card-compact dropdown-content w-52 bg-base-100 shadow"
               >
                 <div className="card-body">
                   <span className="font-bold text-lg">8 Items</span>

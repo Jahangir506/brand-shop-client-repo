@@ -1,3 +1,4 @@
+import { useLoaderData } from "react-router-dom";
 import Banner from "../../components/Banner/Banner";
 import ChoiceBrandCard from "../../components/ChoiceBrandCard/ChoiceBrandCard";
 import Discover from "../../components/Discover/Discover";
@@ -6,12 +7,15 @@ import TopSellingProducts from "../../components/TopSellingProducts/TopSellingPr
 import Footer from "../Footer/Footer";
 
 const Home = () => {
+  const brands = useLoaderData()
   return (
     <>
       <Banner></Banner>
       <MobileBrand></MobileBrand>
       <div className="max-w-7xl mx-auto grid grid-cols-3 gap-y-16 justify-items-center mb-20">
-        <ChoiceBrandCard></ChoiceBrandCard>
+        {
+          brands.map(brand => <ChoiceBrandCard key={brand._id} brand={brand}></ChoiceBrandCard>) 
+        }
       </div>
       <div>
         <h1 className="text-center text-4xl font-medium">Top Selling Products</h1>
