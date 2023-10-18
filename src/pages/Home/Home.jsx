@@ -12,7 +12,6 @@ const Home = () => {
       <MobileBrand></MobileBrand>
       <div className="max-w-7xl mx-auto grid grid-cols-3 gap-y-16 justify-items-center mb-20">
         <ChoiceBrandCard></ChoiceBrandCard>
-        <ChoiceBrandCard></ChoiceBrandCard>
       </div>
       <div>
         <h1 className="text-center text-4xl font-medium">Top Selling Products</h1>

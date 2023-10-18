@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
-import mobileBrand1 from "../../assets/images/mobileBrand1.jpg";
+import samsung from "../../assets/images/samsung.jpg";
 
 const TopSellingProducts = () => {
   return (
     <>
       <div className="card card-compact w-48">
         <figure>
-          <img src={mobileBrand1} alt="Shoes" />
+          <img src={samsung} alt="Shoes" />
         </figure>
         <div className="text-center my-3">
           <p className="">Realme C51</p>
@@ -17,7 +17,7 @@ const TopSellingProducts = () => {
       </div>
       <div className="card card-compact w-48 bg-base-100 shadow-xl">
         <figure>
-          <img src={mobileBrand1} alt="Shoes" />
+          <img src={samsung} alt="Shoes" />
         </figure>
         <div className="flex justify-center items-center hover:bg-gray-100">
           <Link>
@@ -27,7 +27,7 @@ const TopSellingProducts = () => {
       </div>
       <div className="card card-compact w-48 bg-base-100 shadow-xl">
         <figure>
-          <img src={mobileBrand1} alt="Shoes" />
+          <img src={samsung} alt="Shoes" />
         </figure>
         <div className="flex justify-center items-center hover:bg-gray-100">
           <Link>
@@ -37,7 +37,7 @@ const TopSellingProducts = () => {
       </div>
       <div className="card card-compact w-48 bg-base-100 shadow-xl">
         <figure>
-          <img src={mobileBrand1} alt="Shoes" />
+          <img src={samsung} alt="Shoes" />
         </figure>
         <div className="flex justify-center items-center hover:bg-gray-100">
           <Link>
@@ -47,7 +47,7 @@ const TopSellingProducts = () => {
       </div>
       <div className="card card-compact w-48 bg-base-100 shadow-xl">
         <figure>
-          <img src={mobileBrand1} alt="Shoes" />
+          <img src={samsung} alt="Shoes" />
         </figure>
         <div className="flex justify-center items-center hover:bg-gray-100">
           <Link>

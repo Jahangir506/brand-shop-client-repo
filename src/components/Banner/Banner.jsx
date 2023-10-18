@@ -55,7 +55,7 @@ const Banner = () => {
           <div className="aspect-w-16 aspect-h-9">
             <img src={allImg[currentImg]} alt="" className="w-full h-full"/>
           </div>
-          <div className="absolute w-full bottom-1/3 transform -translate-y-1/2 px-5 flex justify-between items-center">
+          <div className="absolute w-full top-1/2 transform -translate-y-1/2 px-5 flex justify-between items-center">
             <button onClick={handleOnPreviousClick} className="">
               <FcPrevious className="bg-white/20 hover:bg-white/30 p-3 text-5xl rounded-full" />{" "}
             </button>

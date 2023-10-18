@@ -113,7 +113,7 @@ const AddProductForm = () => {
                       <span className="label-text">Category</span>
                     </label>
                     <select className="select select-warning w-full">
-                      <option disabled selected>
+                      <option  selected>
                         Phones
                       </option>
                       <option>Tablets</option>
@@ -146,7 +146,7 @@ const AddProductForm = () => {
                       <textarea
                         name="description"
                         id=""
-                        cols="115"
+                        cols="131"
                         rows="5"
                         className="rounded-lg p-4 textarea textarea-warning"
                       ></textarea>

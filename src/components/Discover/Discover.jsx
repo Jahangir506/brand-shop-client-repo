@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import mobileBrand1 from "../../assets/images/mobileBrand1.jpg";
-import mobileBrand2 from "../../assets/images/mobileBrand2.jpg";
+import oneplus from "../../assets/images/oneplus.jpg";
+import samsung from "../../assets/images/samsung.jpg";
 
 const Discover = () => {
   return (
@@ -8,7 +8,7 @@ const Discover = () => {
       <div className="hero">
         <div className="hero-content">
           <img
-            src={mobileBrand1}
+            src={oneplus}
             className=" rounded-lg shadow-2xl"
           />
          
@@ -17,7 +17,7 @@ const Discover = () => {
       <div className="hero">
         <div className="hero-content ">
           <img
-            src={mobileBrand1}
+            src={samsung}
             className=" rounded-lg shadow-2xl"
           />
         </div>

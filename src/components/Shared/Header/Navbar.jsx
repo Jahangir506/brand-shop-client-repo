@@ -9,7 +9,11 @@ const Navbar = () => {
         <NavLink
           to="/"
           className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "bg-orange-500" : ""
+            isPending
+              ? "pending"
+              : isActive
+              ? "text-white"
+              : "hover:bg-orange-500/50 hover:text-white"
           }
         >
           Home
@@ -19,7 +23,11 @@ const Navbar = () => {
         <NavLink
           to="/addProducts"
           className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "active" : ""
+            isPending
+              ? "pending"
+              : isActive
+              ? "text-white"
+              : " hover:bg-orange-500/50 hover:text-white"
           }
         >
           Add Products
@@ -81,33 +89,32 @@ const Navbar = () => {
         <div className="form-control w-full">
           <input
             type="text"
-            placeholder="Search"
-            className="input input-bordered w-[450px] select-warning"
+            placeholder="Type here"
+            className="input input-bordered input-sm w-full select-warning max-w-xs"
           />
         </div>
         <div className="w-1/2 navbar-end">
           <div className="navbar-center hidden lg:flex">
-            <ul className="menu menu-horizontal px-1 gap-2 text-white">{navLinks}</ul>
+            <ul className="menu menu-horizontal px-1 gap-2 text-white">
+              {navLinks}
+            </ul>
           </div>
           <div className="flex justify-center items-center gap-4">
             <div className="dropdown dropdown-end">
               <label tabIndex={0} className="btn btn-ghost btn-circle">
                 <div className="indicator">
-                  <MdOutlineFavoriteBorder className="text-xl"/>
+                  <MdOutlineFavoriteBorder className="text-xl" />
                   <span className="badge badge-sm indicator-item">8</span>
                 </div>
               </label>
               <div
                 tabIndex={0}
-                className="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow"
+                className="mt-3 z-[1] card card-compact dropdown-content w-72 bg-base-100 shadow"
               >
-                <div className="card-body">
-                  <span className="font-bold text-lg">8 Items</span>
-                  <span className="text-info">Subtotal: $999</span>
-                  <div className="card-actions">
-                    <button className="btn btn-primary btn-block">
-                      View cart
-                    </button>
+                <div className="card-body relative">
+                  <p>dkfdfhdfkdjfkdgjfdkjkgjdfs gdjgfd</p>
+                  <div className="absolute right-3 top-3 font-medium text-lg">
+                    <button className="px-2 hover:bg-orange-200 rounded-full">X</button>
                   </div>
                 </div>
               </div>
