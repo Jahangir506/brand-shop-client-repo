@@ -4,7 +4,7 @@ import samsung from "../../assets/images/samsung.jpg";
 const TopSellingProducts = () => {
   return (
     <>
-      <div className="card card-compact w-48">
+      <div className="card card-compact w-52">
         <figure>
           <img src={samsung} alt="Shoes" />
         </figure>
@@ -15,7 +15,7 @@ const TopSellingProducts = () => {
           </p>
         </div>
       </div>
-      <div className="card card-compact w-48 bg-base-100 shadow-xl">
+      <div className="card card-compact w-52 bg-base-100 shadow-xl">
         <figure>
           <img src={samsung} alt="Shoes" />
         </figure>
@@ -25,7 +25,7 @@ const TopSellingProducts = () => {
           </Link>
         </div>
       </div>
-      <div className="card card-compact w-48 bg-base-100 shadow-xl">
+      <div className="card card-compact w-52 bg-base-100 shadow-xl">
         <figure>
           <img src={samsung} alt="Shoes" />
         </figure>
@@ -35,7 +35,7 @@ const TopSellingProducts = () => {
           </Link>
         </div>
       </div>
-      <div className="card card-compact w-48 bg-base-100 shadow-xl">
+      <div className="card card-compact w-52 bg-base-100 shadow-xl">
         <figure>
           <img src={samsung} alt="Shoes" />
         </figure>
@@ -45,7 +45,7 @@ const TopSellingProducts = () => {
           </Link>
         </div>
       </div>
-      <div className="card card-compact w-48 bg-base-100 shadow-xl">
+      <div className="card card-compact w-52 bg-base-100 shadow-xl">
         <figure>
           <img src={samsung} alt="Shoes" />
         </figure>
