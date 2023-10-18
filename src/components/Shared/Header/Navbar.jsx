@@ -1,4 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
+import logo from '../../../assets/images/logo.png';
 
 const Navbar = () => {
   const navlinks = (
@@ -37,7 +38,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className="bg-base-100 py-4">
+    <div className="bg-base-100 py-1">
       <div className="navbar px-28">
         <div className="w-1/2 navbar-start">
           <div className="dropdown">
@@ -82,7 +83,7 @@ const Navbar = () => {
           </div>
           <div>
             <Link to='/'>
-                Top-10
+                <img src={logo} alt="" className="w-72"/>
             </Link>
           </div>
         </div>
@@ -90,7 +91,7 @@ const Navbar = () => {
           <input
             type="text"
             placeholder="Search"
-            className="input input-bordered w-96 bg-slate-200"
+            className="input input-bordered w-[450px] bg-slate-200"
           />
         </div>
         <div className="w-1/2 navbar-end">
