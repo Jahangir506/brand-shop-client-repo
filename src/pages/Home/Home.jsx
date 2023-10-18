@@ -1,14 +1,17 @@
 import Banner from "../../components/Banner/Banner";
+import ChoiceBrandCard from "../../components/ChoiceBrandCard/ChoiceBrandCard";
+import MobileBrand from "../../components/MobileBrand/MobileBrand";
 import Footer from "../Footer/Footer";
 
 const Home = () => {
   return (
     <>
       <Banner></Banner>
+      <MobileBrand></MobileBrand>
       <div className="max-w-7xl mx-auto h-[500px]">
-        <h2 className="text-center"> This is Home page</h2>
+        <ChoiceBrandCard></ChoiceBrandCard>
       </div>
-      <div className="fixed bottom-0 w-full z-50 shadow-md">
+      <div>
         <Footer></Footer>
       </div>
     </>
@@ -16,3 +19,5 @@ const Home = () => {
 };
 
 export default Home;
+
+// footer className="fixed bottom-0 w-full z-50 shadow-md"
