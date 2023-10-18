@@ -9,7 +9,7 @@ const Navbar = () => {
         <NavLink
           to="/"
           className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "active" : ""
+            isPending ? "pending" : isActive ? "bg-orange-500" : ""
           }
         >
           Home
@@ -82,7 +82,7 @@ const Navbar = () => {
           <input
             type="text"
             placeholder="Search"
-            className="input input-bordered w-[450px] bg-slate-200"
+            className="input input-bordered w-[450px] select-warning"
           />
         </div>
         <div className="w-1/2 navbar-end">
