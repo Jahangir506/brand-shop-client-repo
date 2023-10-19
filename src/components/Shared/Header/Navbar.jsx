@@ -1,8 +1,21 @@
+import { useContext } from "react";
 import { MdOutlineFavoriteBorder } from "react-icons/md";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../../Providers/AuthProviders";
 import logo from "../../../assets/images/logo.png";
 
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {
+        navigate("/");
+      })
+      .catch();
+  };
+
   const navLinks = (
     <>
       <li>
@@ -12,7 +25,7 @@ const Navbar = () => {
             isPending
               ? "pending"
               : isActive
-              ? "text-white"
+              ? "active"
               : "hover:bg-orange-500/50 hover:text-white"
           }
         >
@@ -26,25 +39,11 @@ const Navbar = () => {
             isPending
               ? "pending"
               : isActive
-              ? "text-white"
+              ? "active"
               : " hover:bg-orange-500/50 hover:text-white"
           }
         >
           Add Products
-        </NavLink>
-      </li>
-      <li>
-        <NavLink
-          to="/login"
-          className={({ isActive, isPending }) =>
-            isPending
-              ? "pending"
-              : isActive
-              ? "text-white"
-              : " hover:bg-orange-500/50 hover:text-white"
-          }
-        >
-          Login
         </NavLink>
       </li>
     </>
@@ -128,7 +127,9 @@ const Navbar = () => {
                 <div className="card-body relative">
                   <p>dkfdfhdfkdjfkdgjfdkjkgjdfs gdjgfd</p>
                   <div className="absolute right-3 top-3 font-medium text-lg">
-                    <button className="px-2 hover:bg-orange-200 rounded-full">X</button>
+                    <button className="px-2 hover:bg-orange-200 rounded-full">
+                      X
+                    </button>
                   </div>
                 </div>
               </div>
@@ -168,28 +169,44 @@ const Navbar = () => {
                 </div>
               </div>
             </div>
-            <div className="dropdown dropdown-end">
-              <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                <div className="w-10 rounded-full">
-                  <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+            <div className="navbar-center hidden lg:flex">
+              <ul className="gap-6 menu-horizontal px-1 text-white">
+                {user ? (
+                  <div className="dropdown dropdown-end">
+                  <label
+                    tabIndex={0}
+                    className="btn btn-ghost btn-circle avatar"
+                  >
+                    <div className="w-10 rounded-full">
+                      {user && <img src={user?.photoURL} />}
+                    </div>
+                  </label>
+                  <ul
+                    tabIndex={0}
+                    className="menu dropdown-content z-[1] p-4 shadow bg-base-100 rounded-box w-40 mt-4"
+                  >
+                    <div className="text-center">
+                      {user && <p className="mb-3 text-black">{user?.displayName}</p>}
+                      <Link to='/login'><button onClick={handleLogOut} className="btn btn-xs btn-warning">Log out</button></Link>
+                    </div>
+                  </ul>
                 </div>
-              </label>
-              <ul
-                tabIndex={0}
-                className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
-              >
-                <li>
-                  <a className="justify-between">
-                    Profile
-                    <span className="badge">New</span>
-                  </a>
-                </li>
-                <li>
-                  <a>Settings</a>
-                </li>
-                <li>
-                  <a>Logout</a>
-                </li>
+                ) : (
+                  <li>
+                    <NavLink
+                      to="/login"
+                      className={({ isActive, isPending }) =>
+                        isPending
+                          ? "pending"
+                          : isActive
+                          ? "active"
+                          : " hover:bg-orange-500 "
+                      }
+                    >
+                      Login
+                    </NavLink>
+                  </li>
+                )}
               </ul>
             </div>
           </div>

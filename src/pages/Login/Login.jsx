@@ -1,17 +1,75 @@
-import { FaXTwitter } from "react-icons/fa6";
+import { useContext, useState } from "react";
+import { FaEye, FaEyeSlash, FaXTwitter } from "react-icons/fa6";
 import { FcGoogle } from "react-icons/fc";
 import { HiArrowSmallRight } from "react-icons/hi2";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+import { AuthContext } from "../../Providers/AuthProviders";
 import Footer from "../Footer/Footer";
 
+
 const Login = () => {
+  const {signIn} = useContext(AuthContext)
+  const [loginError, setLoginError] = useState('')
+  const [showPass, setShowPass] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+  
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+
+    if (password.length < 6) {
+      Swal.fire(
+        'Opps!',
+        'you have to enter at least 6 digit!',
+        'error'
+      )
+      return;
+    }
+
+    if (!/[A-Z]/.test(password)) {
+      Swal.fire(
+        'Opps!',
+        'Password should contain at least one uppercase character.!',
+        'error'
+      )
+      return;
+    }
+
+    if (!/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
+      Swal.fire(
+        'Opps!',
+        'Password should contain at least one special character.!',
+        'error'
+      )
+      return;
+    }
+
+    signIn(email, password)
+      .then((result) => {
+        const loginUser = result.user;
+        console.log(loginUser);
+        Swal.fire({
+          title: "User Create Successfully",
+          icon: "success",
+        });
+        navigate(location?.state ? location.state : "/");
+      })
+      .catch((error) => {
+        console.error(error);
+        setLoginError("Email is incorrect for this password!");
+      });
+  };
+
   return (
     <>
       <div className="hero bg-base-200 pt-48 pb-36">
         <div className="hero-content flex-col lg:flex-row-reverse w-full">
         
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-            <form className="card-body">
+            <form onSubmit={handleLogin} className="card-body">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
@@ -28,19 +86,33 @@ const Login = () => {
                 <label className="label">
                   <span className="label-text">Password</span>
                 </label>
-                <input
-                  type="password"
-                  placeholder="password"
-                  className="input input-bordered"
-                  required
-                />
-                <label className="label">
+                <div className="relative w-full">
+                  <input
+                    type={showPass ? "text" : "password"}
+                    name="password"
+                    placeholder="password"
+                    className="input input-bordered w-full"
+                    required
+                  />
+                  <span
+                    onClick={() => setShowPass(!showPass)}
+                    className="absolute bottom-1/3 right-4 text-lg"
+                  >
+                    {showPass ? <FaEyeSlash /> : <FaEye></FaEye>}
+                  </span>
+                </div>
+                <label className="label mb-2">
                   <a href="#" className="label-text-alt link link-hover">
                     Forgot password?
                   </a>
                 </label>
+                {loginError && (
+                  <div className="py-3 bg-red-50 px-2 rounded-lg">
+                    <p className="text-red-500 text-center">{loginError}</p>
+                  </div>
+                )}
               </div>
-              <div className="form-control mt-6">
+              <div className="form-control mt-2">
                 <button className="btn btn-warning">Login</button>
               </div>
               <Link to="/register">

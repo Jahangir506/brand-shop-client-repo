@@ -1,13 +1,34 @@
-import { useContext } from "react";
-import { FaXTwitter } from "react-icons/fa6";
+import { useContext, useState } from "react";
+import { FaEye, FaEyeSlash, FaXTwitter } from "react-icons/fa6";
 import { FcGoogle } from "react-icons/fc";
 import { HiArrowSmallRight } from "react-icons/hi2";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 import { AuthContext } from "../../Providers/AuthProviders";
 import Footer from "../Footer/Footer";
 
 const Register = () => {
-    const { createUser } = useContext(AuthContext)
+    const { createUser , googleSignIn} = useContext(AuthContext)
+    const [registerError, setRegisterError] = useState("");
+    const navigate = useNavigate();
+    const [showPass, setShowPass] = useState(false);
+  
+    const handleGoogleSignIn = () => {
+      googleSignIn()
+        .then((result) => {
+          const googleUser = result.user;
+          console.log(googleUser);
+          Swal.fire({
+            title: "User Create Successfully",
+            icon: "success",
+          });
+          navigate(location?.state ? location.state : "/");
+        })
+        .catch((error) => {
+          console.error(error.message);
+          setRegisterError("Email is already Use!")
+        });
+    };
 
     const handleRegister = (e) => {
         e.preventDefault()
@@ -16,6 +37,33 @@ const Register = () => {
         const email = form.email.value;
         const password = form.password.value;
 
+        
+    if (password.length < 6) {
+      Swal.fire(
+        'Opps!',
+        'you have to enter at least 6 digit!',
+        'error'
+      )
+      return;
+    }
+
+    if (!/[A-Z]/.test(password)) {
+      Swal.fire(
+        'Opps!',
+        'Password should contain at least one uppercase character.!',
+        'error'
+      )
+      return;
+    }
+
+    if (!/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
+      Swal.fire(
+        'Opps!',
+        'Password should contain at least one special character.!',
+        'error'
+      )
+      return;
+    }
         createUser(email, password)
         .then(result => {
             const registerUser = result.user;
@@ -33,9 +81,15 @@ const Register = () => {
             .then(data => {
                 console.log(data);
             })
+            Swal.fire({
+              title: "User Create Successfully.!",
+              icon: "success",
+            });
+            navigate(location?.state ? location.state : "/");
         })
         .catch(error => {
-            console.error(error);
+            console.error(error.message);
+            setRegisterError("Email is already Use!")
         })
     }
 
@@ -73,20 +127,33 @@ const Register = () => {
                 <label className="label">
                   <span className="label-text">Password</span>
                 </label>
-                <input
-                  type="password"
-                  name="password"
-                  placeholder="password"
-                  className="input input-bordered"
-                  required
-                />
-                <label className="label">
+                <div className="relative w-full">
+                  <input
+                    type={showPass ? "text" : "password"}
+                    name="password"
+                    placeholder="password"
+                    className="input input-bordered w-full"
+                    required
+                  />
+                  <span
+                    onClick={() => setShowPass(!showPass)}
+                    className="absolute bottom-1/3 right-4 text-lg"
+                  >
+                    {showPass ? <FaEyeSlash /> : <FaEye></FaEye>}
+                  </span>
+                </div>
+                <label className="label mb-2">
                   <a href="#" className="label-text-alt link link-hover">
                     Forgot password?
                   </a>
                 </label>
+                {registerError && (
+                  <div className="py-3 bg-red-50 px-2 rounded">
+                    <p className="text-red-500">{registerError}</p>
+                  </div>
+                )}
               </div>
-              <div className="form-control mt-6">
+              <div className="form-control mt-2">
                 <button className="btn btn-warning">Register</button>
               </div>
               <Link to="/login">
@@ -100,7 +167,7 @@ const Register = () => {
                         <FaXTwitter className="text-2xl" />
                       </Link>
                       <Link>
-                        <FcGoogle className="text-2xl" />
+                        <FcGoogle onClick={handleGoogleSignIn} className="text-2xl" />
                       </Link>
                     </span>
                 </div>

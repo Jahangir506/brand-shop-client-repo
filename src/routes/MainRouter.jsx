@@ -6,6 +6,7 @@ import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import Home from "../pages/Home/Home";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
+import PrivateRouter from "./PrivateRouter";
 
 const MainRouter = createBrowserRouter([
     {
@@ -20,7 +21,7 @@ const MainRouter = createBrowserRouter([
             },
             {
                 path: '/addProducts',
-                element: <AddProductForm></AddProductForm>
+                element: <PrivateRouter><AddProductForm></AddProductForm></PrivateRouter>
             },
             {
                 path: '/login',
@@ -32,7 +33,7 @@ const MainRouter = createBrowserRouter([
             },
             {
                 path: '/detailsProducts',
-                element: <DetailsProducts></DetailsProducts>
+                element: <PrivateRouter><DetailsProducts></DetailsProducts></PrivateRouter>
             }
         ]
     }
