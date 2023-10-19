@@ -170,7 +170,7 @@ const Navbar = () => {
               </div>
             </div>
             <div className="navbar-center hidden lg:flex">
-              <ul className="gap-6 menu-horizontal px-1 text-white">
+              <ul className="gap-6 menu-horizontal px-1">
                 {user ? (
                   <div className="dropdown dropdown-end">
                   <label
@@ -192,7 +192,7 @@ const Navbar = () => {
                   </ul>
                 </div>
                 ) : (
-                  <li>
+                  <li className="text-white font-medium">
                     <NavLink
                       to="/login"
                       className={({ isActive, isPending }) =>
@@ -200,7 +200,7 @@ const Navbar = () => {
                           ? "pending"
                           : isActive
                           ? "active"
-                          : " hover:bg-orange-500 "
+                          : " hover:bg-orange-500/50 hover:text-white"
                       }
                     >
                       Login
