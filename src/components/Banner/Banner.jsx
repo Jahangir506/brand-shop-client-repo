@@ -37,13 +37,13 @@ const Banner = () => {
   const handleOnNextClick = () => {
     count = (count + 1) % allImg.length;
     setCurrentImg(count);
-    sliderRef.current.classList.add("fade-anim");
+    sliderRef.current.classList.add('fade-anim')
   };
   const handleOnPreviousClick = () => {
     const productsLength = allImg.length;
     count = (currentImg + productsLength - 1) % productsLength;
     setCurrentImg(count);
-    sliderRef.current.classList.add("fade-anim");
+    sliderRef.current.classList.add('fade-anim')
   };
 
   const allImg = [`${slider1}`, `${slider2}`, `${slider3}`];
