@@ -110,7 +110,7 @@ const Navbar = () => {
           <div className="flex justify-center items-center gap-4">
             <div className="navbar-center hidden lg:flex">
               <ul className="menu menu-horizontal px-1 gap-2  font-bold">
-                {navLinks}
+                {user && <>{navLinks}</>}
                 {user && (
                   <div className="dropdown dropdown-end">
                     <label tabIndex={0} className="btn btn-ghost btn-circle">
