@@ -103,7 +103,7 @@ const Navbar = () => {
           <input
             type="text"
             placeholder="Search here"
-            className="input input-bordered bg-orange-500/5 input-sm w-full select-warning max-w-xs"
+            className="input input-bordered bg-orange-500/5 text-white input-sm w-full select-warning max-w-xs"
           />
         </div>
         <div className="w-1/2 navbar-end">
