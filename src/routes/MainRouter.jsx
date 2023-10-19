@@ -17,7 +17,7 @@ const MainRouter = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>,
-                loader: ()=> fetch('http://localhost:5007/brands')
+                loader: ()=> fetch('https://brand-shop-server-repo.vercel.app/brands')
             },
             {
                 path: '/addProducts',
@@ -33,7 +33,8 @@ const MainRouter = createBrowserRouter([
             },
             {
                 path: '/detailsProducts',
-                element: <PrivateRouter><DetailsProducts></DetailsProducts></PrivateRouter>
+                element: <PrivateRouter><DetailsProducts></DetailsProducts></PrivateRouter>,
+                loader: () => fetch('https://brand-shop-server-repo.vercel.app/brand')
             }
         ]
     }

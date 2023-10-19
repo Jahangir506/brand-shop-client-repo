@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import samsung from "../../assets/images/samsung.jpg";
+import samsung from "../../assets/images/brands/samsung.jpg";
 
 const TopSellingProducts = () => {
   return (

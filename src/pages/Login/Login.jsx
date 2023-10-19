@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { FaEye, FaEyeSlash, FaXTwitter } from "react-icons/fa6";
+import { FaEye, FaEyeSlash, FaGithub, } from "react-icons/fa6";
 import { FcGoogle } from "react-icons/fc";
 import { HiArrowSmallRight } from "react-icons/hi2";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -9,11 +9,29 @@ import Footer from "../Footer/Footer";
 
 
 const Login = () => {
-  const {signIn} = useContext(AuthContext)
+  const {signIn, signInPopUp} = useContext(AuthContext)
   const [loginError, setLoginError] = useState('')
   const [showPass, setShowPass] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+
+  const handleGithubSignIn = () => {
+    signInPopUp()
+      .then((result) => {
+        const users = result.user;
+        console.log(users);
+        Swal.fire({
+          title: "User Create Successfully",
+          icon: "success",
+        });
+        navigate(location?.state ? location.state : "/");
+      })
+      .catch((error) => {
+        console.error(error.message);
+        setLoginError("Gmail is already Use!")
+      });
+  };
+
   
   const handleLogin = (e) => {
     e.preventDefault();
@@ -59,7 +77,7 @@ const Login = () => {
       })
       .catch((error) => {
         console.error(error);
-        setLoginError("Email is incorrect for this password!");
+        setLoginError("Password is incorrect for this email!");
       });
   };
 
@@ -123,7 +141,7 @@ const Login = () => {
                       <span className="mr-1 text-2xl">OR</span>
                       <HiArrowSmallRight />
                       <Link className="mr-3 ml-4">
-                        <FaXTwitter className="text-2xl" />
+                        <FaGithub onClick={handleGithubSignIn} className="text-2xl" />
                       </Link>
                       <Link>
                         <FcGoogle className="text-2xl" />

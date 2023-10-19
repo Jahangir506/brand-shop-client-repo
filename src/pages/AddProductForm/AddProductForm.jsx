@@ -5,25 +5,27 @@ import Footer from "../Footer/Footer";
 
 const AddProductForm = () => {
   const handleAddProducts = (e) => {
+    console.log(e.target.option);
     e.preventDefault();
     const form = e.target;
+    const image = form.image.value;
     const name = form.name.value;
-    const chef = form.chef.value;
-    const supplier = form.supplier.value;
-    const taste = form.supplier.value;
-    const details = form.details.value;
-    const photo = form.photo.value;
-    const newCoffee = { name, chef, supplier, taste, details, photo };
-    console.log(newCoffee);
+    const brandName = form.brandName.value;
+    const category = form.category.value;
+    const price = parseInt(form.price.value);
+    const description = form.description.value;
+
+    const addNewProducts = {image, name, brandName,category, price, description};
+    console.log(addNewProducts);
 
     fetch(
-      "https://coffee-master-projects-bd2023-server-hcdcf6bwh-jahangir506.vercel.app/coffee",
+      "https://brand-shop-server-repo.vercel.app/brand",
       {
         method: "POST",
         headers: {
           "content-type": "application/json",
         },
-        body: JSON.stringify(newCoffee),
+        body: JSON.stringify(addNewProducts),
       }
     )
       .then((res) => res.json())
@@ -44,12 +46,12 @@ const AddProductForm = () => {
     <>
       <div className="mt-28 max-w-7xl mx-auto">
         <div className="max-w-6xl mx-auto mt-32">
-            <Link to="/">
-              <h4 className="font-rancho text-xl flex items-center">
-                <BsArrowLeft/>
-                 <span className="ml-1">Back to home</span>
-                </h4>
-            </Link>
+          <Link to="/">
+            <h4 className="font-rancho text-xl flex items-center">
+              <BsArrowLeft />
+              <span className="ml-1">Back to home</span>
+            </h4>
+          </Link>
           <div className="bg-slate-200 rounded mt-2 mb-20 pb-4">
             <div className="text-center">
               <h1 className="text-4xl font-semibold font-rancho">
@@ -82,48 +84,33 @@ const AddProductForm = () => {
                 <div className="flex justify-between gap-6">
                   <div className="form-control w-1/2">
                     <label className="label">
-                      <span className="label-text">Name</span>
+                      <span className="label-text">Brand Name</span>
                     </label>
                     <label className="form-group">
                       <input
                         type="text"
-                        name="name"
-                        placeholder="name"
+                        name="brandName"
+                        placeholder="brand name"
                         className="input input-bordered w-full select-warning"
                       />
                     </label>
                   </div>
                   <div className="form-control w-1/2">
                     <label className="label">
-                      <span className="label-text">Brand Name</span>
+                      <span className="label-text">Category</span>
                     </label>
                     <label className="form-group">
                       <input
                         type="text"
-                        name="brand"
-                        placeholder="brand name"
-                        className="input input-bordered select-warning w-full"
+                        name="category"
+                        placeholder="Category"
+                        className="input input-bordered w-full select-warning"
                       />
                     </label>
                   </div>
                 </div>
                 <div className="flex justify-between gap-6">
-                  <div className="form-control w-1/2">
-                    <label className="label">
-                      <span className="label-text">Category</span>
-                    </label>
-                    <select className="select select-warning w-full">
-                      <option  selected>
-                        Phones
-                      </option>
-                      <option>Tablets</option>
-                      <option>Laptop</option>
-                      <option>Headphones</option>
-                      <option>Smart Watches</option>
-                      <option>Chargers</option>
-                    </select>
-                  </div>
-                  <div className="form-control w-1/2">
+                  <div className="form-control w-full">
                     <label className="label">
                       <span className="label-text">Price</span>
                     </label>
@@ -147,7 +134,7 @@ const AddProductForm = () => {
                         name="description"
                         id=""
                         cols="131"
-                        rows="5"
+                        rows="4"
                         className="rounded-lg p-4 textarea textarea-warning"
                       ></textarea>
                     </label>
@@ -188,7 +175,7 @@ const AddProductForm = () => {
                   <input
                     type="submit"
                     value="Add Products"
-                    className="btn bg-[#D2B48C] hover:bg-[#f6d9b3] text-[#331A15] capitalize w-full font-rancho text-xl"
+                    className="btn bg-orange-300 hover:bg-orange-200 text-[#331A15] capitalize w-full font-rancho text-xl"
                   ></input>
                 </div>
               </form>

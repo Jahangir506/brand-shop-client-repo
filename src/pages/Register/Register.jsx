@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { FaEye, FaEyeSlash, FaXTwitter } from "react-icons/fa6";
+import { FaEye, FaEyeSlash, FaGithub, } from "react-icons/fa6";
 import { FcGoogle } from "react-icons/fc";
 import { HiArrowSmallRight } from "react-icons/hi2";
 import { Link, useNavigate } from "react-router-dom";
@@ -8,16 +8,16 @@ import { AuthContext } from "../../Providers/AuthProviders";
 import Footer from "../Footer/Footer";
 
 const Register = () => {
-    const { createUser , googleSignIn} = useContext(AuthContext)
+    const { createUser , signInPopUp} = useContext(AuthContext)
     const [registerError, setRegisterError] = useState("");
     const navigate = useNavigate();
     const [showPass, setShowPass] = useState(false);
   
-    const handleGoogleSignIn = () => {
-      googleSignIn()
+    const handleGithubSignIn = () => {
+      signInPopUp()
         .then((result) => {
-          const googleUser = result.user;
-          console.log(googleUser);
+          const users = result.user;
+          console.log(users);
           Swal.fire({
             title: "User Create Successfully",
             icon: "success",
@@ -70,7 +70,7 @@ const Register = () => {
             console.log(registerUser);
 
             const user = {name, email, password}
-            fetch('http://localhost:5007/user', {
+            fetch('https://brand-shop-server-repo.vercel.app/user', {
                 method: "POST",
                 headers: {
                     'content-type': 'application/json',
@@ -164,10 +164,10 @@ const Register = () => {
                       <span className="mr-1 text-2xl">OR</span>
                       <HiArrowSmallRight />
                       <Link className="mr-3 ml-4">
-                        <FaXTwitter className="text-2xl" />
+                        <FaGithub onClick={handleGithubSignIn} className="text-2xl" />
                       </Link>
                       <Link>
-                        <FcGoogle onClick={handleGoogleSignIn} className="text-2xl" />
+                        <FcGoogle className="text-2xl" />
                       </Link>
                     </span>
                 </div>

@@ -1,19 +1,19 @@
 import Marquee from "react-fast-marquee";
-import brand1 from '../../assets/images/brand1.jpg';
-import brand10 from '../../assets/images/brand10.jpg';
-import brand11 from '../../assets/images/brand11.jpg';
-import brand12 from '../../assets/images/brand12.jpg';
-import brand13 from '../../assets/images/brand13.jpg';
-import brand14 from '../../assets/images/brand14.jpg';
-import brand15 from '../../assets/images/brand15.jpg';
-import brand2 from '../../assets/images/brand2.jpg';
-import brand3 from '../../assets/images/brand3.jpg';
-import brand4 from '../../assets/images/brand4.jpg';
-import brand5 from '../../assets/images/brand5.jpg';
-import brand6 from '../../assets/images/brand6.jpg';
-import brand7 from '../../assets/images/brand7.jpg';
-import brand8 from '../../assets/images/brand8.jpg';
-import brand9 from '../../assets/images/brand9.jpg';
+import brand1 from '../../assets/images/brand_logo/brand1.jpg';
+import brand2 from '../../assets/images/brand_logo/brand2.jpg';
+import brand3 from '../../assets/images/brand_logo/brand3.jpg';
+import brand4 from '../../assets/images/brand_logo/brand4.jpg';
+import brand5 from '../../assets/images/brand_logo/brand5.jpg';
+import brand6 from '../../assets/images/brand_logo/brand6.jpg';
+import brand7 from '../../assets/images/brand_logo/brand7.jpg';
+import brand8 from '../../assets/images/brand_logo/brand8.jpg';
+import brand9 from '../../assets/images/brand_logo/brand9.jpg';
+import brand10 from '../../assets/images/brand_logo/brand10.jpg';
+import brand11 from '../../assets/images/brand_logo/brand11.jpg';
+import brand12 from '../../assets/images/brand_logo/brand12.jpg';
+import brand13 from '../../assets/images/brand_logo/brand13.jpg';
+import brand14 from '../../assets/images/brand_logo/brand14.jpg';
+import brand15 from '../../assets/images/brand_logo/brand15.jpg';
 
 
 const MobileBrand = () => {
