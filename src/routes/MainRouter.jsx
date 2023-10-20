@@ -19,12 +19,12 @@ const MainRouter = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>,
-                loader: ()=> fetch('http://localhost:5007/newBrands')
+                loader: ()=> fetch('https://brand-shop-server-repo.vercel.app/newBrands')
             },
             {
                 path: '/newBrands/detailsCard/:brandName',
                 element: <Products></Products>,
-                loader: () => fetch('http://localhost:5007/productList')
+                loader: () => fetch('https://brand-shop-server-repo.vercel.app/productList')
             },
             {
                 path: '/addProducts',
@@ -41,17 +41,17 @@ const MainRouter = createBrowserRouter([
             {
                 path: '/products',
                 element: <PrivateRouter><Products></Products></PrivateRouter>,
-                loader: () => fetch('http://localhost:5007/products')
+                loader: () => fetch('https://brand-shop-server-repo.vercel.app/products')
             },
             {
                 path: '/products/productDetails/:id',
                 element: <ProductDetails></ProductDetails>,
-                loader: ({params}) => fetch(`http://localhost:5007/products/${params.id}`)
+                loader: ({params}) => fetch(`https://brand-shop-server-repo.vercel.app/products/${params.id}`)
             },
             {
                 path: '/updateProducts/:id',
                 element: <UpdateProducts></UpdateProducts>,
-                loader: ({params}) => fetch(`http://localhost:5007/products/${params.id}`)
+                loader: ({params}) => fetch(`https://brand-shop-server-repo.vercel.app/products/${params.id}`)
             }
         ]
     }

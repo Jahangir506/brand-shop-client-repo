@@ -16,8 +16,19 @@ const Register = () => {
     const handleGithubSignIn = () => {
       signInPopUp()
         .then((result) => {
-          const users = result.user;
-          console.log(users);
+          const user = result.user;
+            fetch('https://brand-shop-server-repo.vercel.app/user', {
+                method: "POST",
+                headers: {
+                    'content-type': 'application/json',
+                },
+                body: JSON.stringify(user)
+            })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+            })
+          console.log(user);
           Swal.fire({
             title: "User Create Successfully",
             icon: "success",
@@ -70,7 +81,7 @@ const Register = () => {
             console.log(registerUser);
 
             const user = {name, email, password}
-            fetch('http://localhost:5007/user', {
+            fetch('https://brand-shop-server-repo.vercel.app/user', {
                 method: "POST",
                 headers: {
                     'content-type': 'application/json',

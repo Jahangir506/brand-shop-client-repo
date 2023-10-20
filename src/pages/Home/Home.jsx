@@ -19,7 +19,7 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
-    fetch("http://localhost:5007/productList")
+    fetch("https://brand-shop-server-repo.vercel.app/productList")
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
