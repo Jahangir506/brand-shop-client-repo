@@ -1,12 +1,26 @@
-import { useContext } from "react";
-import { MdOutlineFavoriteBorder } from "react-icons/md";
+import { useContext, useEffect, useState } from "react";
+import { MdOutlineDarkMode, MdOutlineFavoriteBorder } from "react-icons/md";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Providers/AuthProviders";
 import logo from "../../../assets/images/logo.png";
+import {} from "react-icons/md";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
+  const [darkMode, setDarkMode] = useState("light");
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (darkMode === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [darkMode]);
+
+  const handleDarkMode = () => {
+    setDarkMode(darkMode === "dark" ? "light" : "dark");
+  };
 
   const handleLogOut = () => {
     logOut()
@@ -109,7 +123,7 @@ const Navbar = () => {
         <div className="w-1/2 navbar-end">
           <div className="flex justify-center items-center gap-4">
             <div className="navbar-center hidden lg:flex">
-              <ul className="menu menu-horizontal px-1 gap-2  font-bold">
+              <ul className="menu menu-horizontal px-1 gap-2 items-center  font-bold">
                 {navLinks}
                 {user && (
                   <div className="dropdown dropdown-end">
@@ -214,6 +228,12 @@ const Navbar = () => {
                     </NavLink>
                   </li>
                 )}
+                <li>
+                  <MdOutlineDarkMode
+                    onClick={handleDarkMode}
+                    className="text-6xl text-white"
+                  />
+                </li>
               </ul>
             </div>
           </div>

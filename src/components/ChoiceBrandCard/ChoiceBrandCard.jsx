@@ -4,7 +4,7 @@ import "aos/dist/aos.css";
 import { useEffect } from "react";
 
 const ChoiceBrandCard = ({ brand }) => {
-  const { brand_name, brand_img } = brand || {};
+  const { brandName, image} = brand || {};
 
   useEffect(() => {
     AOS.init();
@@ -13,16 +13,16 @@ const ChoiceBrandCard = ({ brand }) => {
   return (
     <>
       <Link
-        to="/detailsProducts"
+        to={`/newBrands/detailsCard/${brandName}`}
         className="card card-compact w-80 bg-base-100 shadow-xl hover:scale-75 duration-500"
         data-aos="fade-up"
         data-aos-anchor-placement="top-center"
       >
         <figure>
-          <img src={brand_img} alt="Shoes" />
+          <img src={image} alt="Shoes" />
         </figure>
         <div className="flex justify-center items-center">
-          <p className="p-4  text-4xl font-bold">{brand_name}</p>
+          <p className="p-4  text-4xl font-bold">{brandName}</p>
         </div>
       </Link>
     </>

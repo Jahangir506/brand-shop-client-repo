@@ -70,7 +70,7 @@ const Register = () => {
             console.log(registerUser);
 
             const user = {name, email, password}
-            fetch('https://brand-shop-server-repo.vercel.app/user', {
+            fetch('http://localhost:5007/user', {
                 method: "POST",
                 headers: {
                     'content-type': 'application/json',

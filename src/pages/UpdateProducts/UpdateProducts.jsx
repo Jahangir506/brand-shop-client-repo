@@ -1,40 +1,41 @@
 import { BsArrowLeft } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 import Footer from "../Footer/Footer";
 
-const AddProductForm = () => {
-  const handleAddProducts = (e) => {
-    console.log(e.target.option);
+const UpdateProducts = () => {
+  const productDetails = useLoaderData();
+  const { _id, image, price, category, brandName, description } = productDetails || {};
+
+  const handleUpdateProducts = (e) => {
     e.preventDefault();
     const form = e.target;
     const image = form.image.value;
-    const name = form.name.value;
     const brandName = form.brandName.value;
     const category = form.category.value;
     const price = parseInt(form.price.value);
     const description = form.description.value;
 
-    const addNewProducts = {image, name, brandName,category, price, description};
-    console.log(addNewProducts);
+    const updateProducts = {image, brandName, category, price, description};
+
 
     fetch(
-      "http://localhost:5007/products",
+      `http://localhost:5007/products/${_id}`,
       {
-        method: "POST",
+        method: "PUT",
         headers: {
           "content-type": "application/json",
         },
-        body: JSON.stringify(addNewProducts),
+        body: JSON.stringify(updateProducts),
       }
     )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        if (data.insertedId) {
+        if (data.modifiedCount>0) {
           Swal.fire({
             title: "success!",
-            text: "Products Added Successfully",
+            text: "Products updated successfully",
             icon: "success",
             confirmButtonText: "ok",
           });
@@ -47,15 +48,15 @@ const AddProductForm = () => {
       <div className="mt-28 max-w-7xl mx-auto">
         <div className="max-w-6xl mx-auto mt-32">
           <Link to="/">
-            <h4 className="font-rancho text-xl flex items-center">
+            <h4 className="font-rancho text-lg flex items-center">
               <BsArrowLeft />
               <span className="ml-1">Back to home</span>
             </h4>
           </Link>
-          <div className="  rounded mt-2 mb-20 pb-4">
+          <div className="rounded mt-2 mb-20 pb-4">
             <div className="text-center">
               <h1 className="text-4xl font-semibold font-rancho">
-                Add New Products
+                Update Products
               </h1>
               <p className="max-w-2xl mx-auto my-4">
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae
@@ -64,8 +65,8 @@ const AddProductForm = () => {
                 Perferendis possimus corrupti quos blanditiis pariatur?
               </p>
             </div>
-            <div className="max-w-4xl mx-auto  ">
-              <form onSubmit={handleAddProducts} className="my-6 ">
+            <div className="max-w-4xl mx-auto">
+              <form onSubmit={handleUpdateProducts} className="my-6">
                 <div className="flex justify-between gap-6">
                   <div className="form-control w-full">
                     <label className="label">
@@ -75,8 +76,9 @@ const AddProductForm = () => {
                       <input
                         type="text"
                         name="image"
+                        defaultValue={image}
                         placeholder="Enter image url"
-                        className="input input-bordered w-full select-warning dark:bg-black/10"
+                        className="dark:bg-black/10 input input-bordered w-full select-warning"
                       />
                     </label>
                   </div>
@@ -90,8 +92,9 @@ const AddProductForm = () => {
                       <input
                         type="text"
                         name="brandName"
+                        defaultValue={brandName}
                         placeholder="brand name"
-                        className="input input-bordered w-full select-warning dark:bg-black/10"
+                        className="dark:bg-black/10 input input-bordered w-full select-warning"
                       />
                     </label>
                   </div>
@@ -103,8 +106,9 @@ const AddProductForm = () => {
                       <input
                         type="text"
                         name="category"
+                        defaultValue={category}
                         placeholder="Category"
-                        className="input input-bordered w-full select-warning dark:bg-black/10"
+                        className="dark:bg-black/10 input input-bordered w-full select-warning"
                       />
                     </label>
                   </div>
@@ -118,8 +122,9 @@ const AddProductForm = () => {
                       <input
                         type="text"
                         name="price"
+                        defaultValue={price}
                         placeholder="price"
-                        className="input input-bordered w-full select-warning dark:bg-black/10"
+                        className="dark:bg-black/10 input input-bordered w-full select-warning"
                       />
                     </label>
                   </div>
@@ -132,10 +137,11 @@ const AddProductForm = () => {
                     <label className="form-group ">
                       <textarea
                         name="description"
+                        defaultValue={description}
                         id=""
                         cols="131"
                         rows="4"
-                        className="rounded-lg p-4 textarea textarea-warning dark:bg-black/10"
+                        className="dark:bg-black/10 rounded-lg p-4 textarea textarea-warning"
                       ></textarea>
                     </label>
                   </div>
@@ -174,7 +180,7 @@ const AddProductForm = () => {
                 <div className="my-5">
                   <input
                     type="submit"
-                    value="Add Products"
+                    value="Update"
                     className="btn bg-orange-300 hover:bg-orange-200 text-[#331A15] capitalize w-full font-rancho text-xl"
                   ></input>
                 </div>
@@ -188,4 +194,4 @@ const AddProductForm = () => {
   );
 };
 
-export default AddProductForm;
+export default UpdateProducts;

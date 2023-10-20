@@ -10,7 +10,8 @@ import TopSellingProducts from "../../components/TopSellingProducts/TopSellingPr
 import Footer from "../Footer/Footer";
 
 const Home = () => {
-  const brands = useLoaderData();
+  const newBrands = useLoaderData();
+  console.log(newBrands);
 
   useEffect(() => {
     AOS.init();
@@ -26,7 +27,7 @@ const Home = () => {
         data-aos-easing="linear"
         data-aos-duration="1500"
       >
-        {brands.map((brand) => (
+        {newBrands.map((brand) => (
           <ChoiceBrandCard
             key={brand._id}
             brand={brand}
