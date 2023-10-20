@@ -3,7 +3,6 @@ import { MdOutlineDarkMode, MdOutlineFavoriteBorder } from "react-icons/md";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Providers/AuthProviders";
 import logo from "../../../assets/images/logo.png";
-import {} from "react-icons/md";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -66,7 +65,7 @@ const Navbar = () => {
   return (
     <div className="bg-green-900 py-2">
       <div className="navbar px-28">
-        <div className="w-1/2 navbar-start">
+        <div className="w-1/2 lg:navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
               <svg
