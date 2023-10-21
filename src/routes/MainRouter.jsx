@@ -57,7 +57,7 @@ const MainRouter = createBrowserRouter([
             {
                 path: '/addedProducts',
                 element: <NewProductAdded></NewProductAdded>,
-                loader: () =>  fetch('http://localhost:5007/products')
+                loader: () =>  fetch('https://brand-shop-server-repo.vercel.app/products')
             }
         ]
     }
