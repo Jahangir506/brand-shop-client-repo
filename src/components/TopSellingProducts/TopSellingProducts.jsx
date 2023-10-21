@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";
 
 const TopSellingProducts = ({ topProduct }) => {
-  const {_id, image } = topProduct || {};
+  const {_id, image, brandName, price } = topProduct || {};
 
   return (
     <>
@@ -16,9 +16,9 @@ const TopSellingProducts = ({ topProduct }) => {
             <img src={image} alt="Shoes" />
           </figure>
           <div className="text-center my-3">
-            <p className="">Realme C51</p>
+            <p className="">{brandName}</p>
             <p className="mt-1">
-              Price: 8,999 <span className="opacity-75">10,999</span>
+              {price} <span className="opacity-75">10,999</span>
             </p>
           </div>
         </div>
