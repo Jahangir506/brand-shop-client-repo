@@ -18,7 +18,7 @@ const TopSellingProducts = ({ topProduct }) => {
           <div className="text-center my-3">
             <p className="">{productName}</p>
             <p className="mt-1">
-              {price} <span className="opacity-75">10,999</span>
+              {price}
             </p>
           </div>
         </div>
