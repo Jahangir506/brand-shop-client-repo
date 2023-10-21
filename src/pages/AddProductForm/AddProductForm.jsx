@@ -5,11 +5,10 @@ import Footer from "../Footer/Footer";
 
 const AddProductForm = () => {
   const handleAddProducts = (e) => {
-    console.log(e.target.option);
     e.preventDefault();
     const form = e.target;
-    const image = form.image.value;
     const name = form.name.value;
+    const image = form.image.value;
     const brandName = form.brandName.value;
     const category = form.category.value;
     const price = parseInt(form.price.value);
@@ -19,7 +18,7 @@ const AddProductForm = () => {
     console.log(addNewProducts);
 
     fetch(
-      "https://brand-shop-server-repo.vercel.app/products",
+      "http://localhost:5007/products",
       {
         method: "POST",
         headers: {
@@ -45,7 +44,7 @@ const AddProductForm = () => {
   return (
     <>
       <div className="mt-28 max-w-7xl mx-auto">
-        <div className="max-w-6xl mx-auto mt-32">
+        <div className="max-w-6xl mx-auto py-4">
           <Link to="/">
             <h4 className="font-rancho text-xl flex items-center">
               <BsArrowLeft />
@@ -82,6 +81,19 @@ const AddProductForm = () => {
                   </div>
                 </div>
                 <div className="flex justify-between gap-6">
+                <div className="form-control w-1/2">
+                    <label className="label">
+                      <span className="label-text dark:text-white">Name</span>
+                    </label>
+                    <label className="form-group">
+                      <input
+                        type="text"
+                        name="name"
+                        placeholder="Name"
+                        className="input input-bordered w-full select-warning dark:bg-black/10"
+                      />
+                    </label>
+                  </div>
                   <div className="form-control w-1/2">
                     <label className="label">
                       <span className="label-text dark:text-white">Brand Name</span>
@@ -90,11 +102,13 @@ const AddProductForm = () => {
                       <input
                         type="text"
                         name="brandName"
-                        placeholder="brand name"
+                        placeholder="Brand name"
                         className="input input-bordered w-full select-warning dark:bg-black/10"
                       />
                     </label>
                   </div>
+                </div>
+                <div className="flex justify-between gap-6">
                   <div className="form-control w-1/2">
                     <label className="label">
                       <span className="label-text dark:text-white">Category</span>
@@ -108,9 +122,7 @@ const AddProductForm = () => {
                       />
                     </label>
                   </div>
-                </div>
-                <div className="flex justify-between gap-6">
-                  <div className="form-control w-full">
+                  <div className="form-control w-1/2">
                     <label className="label">
                       <span className="label-text dark:text-white">Price</span>
                     </label>
@@ -118,7 +130,7 @@ const AddProductForm = () => {
                       <input
                         type="text"
                         name="price"
-                        placeholder="price"
+                        placeholder="Price"
                         className="input input-bordered w-full select-warning dark:bg-black/10"
                       />
                     </label>

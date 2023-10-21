@@ -51,7 +51,7 @@ const Banner = () => {
   return (
     <>
       <div>
-        <div ref={sliderRef} className="w-full select-none relative mt-28">
+        <div ref={sliderRef} className="w-full select-none relative py-12">
           <div className="aspect-w-16 aspect-h-9">
             <img src={allImg[currentImg]} alt="" className="w-full h-full"/>
           </div>

@@ -12,7 +12,6 @@ import Footer from "../Footer/Footer";
 const Home = () => {
   const [topProducts, setTopProducts] = useState([]);
   const newBrands = useLoaderData();
-  console.log(newBrands);
 
   useEffect(() => {
     AOS.init();
@@ -22,7 +21,6 @@ const Home = () => {
     fetch("https://brand-shop-server-repo.vercel.app/productList")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setTopProducts(data);
       });
   }, []);

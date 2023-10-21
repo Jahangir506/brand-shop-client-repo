@@ -11,8 +11,8 @@ const Products = () => {
   const { brandName } = useParams();
 
   useEffect(() => {
-    const product = allProduct?.filter(bring => bring?.brandName === brandName);
-    setProducts(product);
+    const allProductBrands = allProduct?.filter(product => product?.brandName === brandName);
+    setProducts(allProductBrands);
   }, [brandName, allProduct]);
 
   console.log(products);
@@ -20,14 +20,14 @@ const Products = () => {
   return (
     <>
       <div className="max-w-7xl dark:text-white mx-auto mt-28">
-        <div className="mt-40">
+        <div>
           <Banner></Banner>
         </div>
-        <div className="mt-10">
+        <div>
           <h2 className="text-4xl font-semibold text-center">
             Product Collection
           </h2>
-          <div className="grid grid-cols-2 gap-y-14 mt-16 mb-20">
+          <div className="grid grid-cols-2 gap-5 mb-20">
             {products.map((product) => (
               <ProductCards key={product._id} product={product}></ProductCards>
             ))}

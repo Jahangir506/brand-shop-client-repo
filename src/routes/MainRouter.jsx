@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import NewProductAdded from "../components/NewProductAdded/NewProductAdded";
 import MainRoot from "../layouts/MainRoot";
 import AddProductForm from "../pages/AddProductForm/AddProductForm";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
@@ -39,19 +40,24 @@ const MainRouter = createBrowserRouter([
                 element: <Register></Register>
             },
             {
-                path: '/products',
+                path: '/productList',
                 element: <PrivateRouter><Products></Products></PrivateRouter>,
-                loader: () => fetch('https://brand-shop-server-repo.vercel.app/products')
+                loader: () => fetch('https://brand-shop-server-repo.vercel.app/productList')
             },
             {
-                path: '/products/productDetails/:id',
+                path: '/productList/productDetails/:id',
                 element: <ProductDetails></ProductDetails>,
-                loader: ({params}) => fetch(`https://brand-shop-server-repo.vercel.app/products/${params.id}`)
+                loader: ({params}) => fetch(`https://brand-shop-server-repo.vercel.app/productList/${params.id}`)
             },
             {
                 path: '/updateProducts/:id',
                 element: <UpdateProducts></UpdateProducts>,
                 loader: ({params}) => fetch(`https://brand-shop-server-repo.vercel.app/products/${params.id}`)
+            },
+            {
+                path: '/addedProducts',
+                element: <NewProductAdded></NewProductAdded>,
+                loader: () =>  fetch('http://localhost:5007/products')
             }
         ]
     }
