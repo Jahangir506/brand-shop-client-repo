@@ -51,16 +51,16 @@ const Banner = () => {
   return (
     <>
       <div>
-        <div ref={sliderRef} className="w-full select-none relative py-12">
-          <div className="aspect-w-16 aspect-h-9">
+        <div ref={sliderRef} className="w-full select-none relative pt-12 md:py-12">
+          <div className="aspect-w-16 h-[230px]  md:h-[580px]">
             <img src={allImg[currentImg]} alt="" className="w-full h-full"/>
           </div>
-          <div className="absolute w-full top-1/2 transform -translate-y-1/2 px-5 flex justify-between items-center">
+          <div className="absolute w-full bottom-1/4 md:top-1/2 transform -translate-y-1/2 px-0.5 md:px-5 flex justify-between items-center">
             <button onClick={handleOnPreviousClick} className="">
-              <FcPrevious className="bg-white/20 hover:bg-white/30 p-3 text-orange-500 text-5xl rounded-full" />
+              <FcPrevious className="bg-white/20 hover:bg-white/30 p-1 md:p-3 text-orange-500 text-3xl md:text-5xl rounded-full" />
             </button>
             <button onClick={handleOnNextClick}>
-              <FcNext className="bg-white/20 hover:bg-white/30 text-orange-500 p-3 text-5xl rounded-full" />
+              <FcNext className="bg-white/20 hover:bg-white/30 text-orange-500 p-1 md:p-3 text-3xl md:text-5xl rounded-full" />
             </button>
           </div>
         </div>

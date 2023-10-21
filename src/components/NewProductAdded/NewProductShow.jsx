@@ -3,8 +3,8 @@ import { FaEdit } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
-const NewProductShow = ({ newProduct }) => {
-  const { _id, image } = newProduct || {};
+const NewProductShow = ({newProduct,newProductsAdded ,setNewProductsAdded}) => {
+  const { _id, image, price, name, brandName } = newProduct || {};
   console.log(newProduct);
 
   const handleProductDelete = (id) => {
@@ -19,12 +19,14 @@ const NewProductShow = ({ newProduct }) => {
     }).then((result) => {
       if (result.isConfirmed) {
         fetch(`http://localhost:5007/products/${id}`, {
-          method: "DELETE"
+          method: "DELETE",
         })
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount > 0) {
               Swal.fire("Deleted!", "Your file has been deleted.", "success");
+              const remaining = newProductsAdded.filter(product => product._id !== _id)
+              setNewProductsAdded(remaining)
             }
           });
       }
@@ -40,7 +42,8 @@ const NewProductShow = ({ newProduct }) => {
         <div className="card-body">
           <div className="flex justify-between">
             <div>
-              <h2 className="card-title">New movie is released!</h2>
+              <h2 className="card-title">{name}</h2>
+              <p className="text-lg">{brandName}</p>
               <p>Click the button to watch on Jetflix app.</p>
             </div>
             <div className="space-y-3 join join-vertical text-right">

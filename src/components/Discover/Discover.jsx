@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
-
+import image1 from '../../assets/images//brands/samsung.jpg'
+import image2 from '../../assets/images//brands/sony.jpg'
 
 const Discover = () => {
   return (
@@ -7,7 +7,7 @@ const Discover = () => {
       <div className="hero">
         <div className="hero-content">
           <img
-            
+            src={image1}
             className=" rounded-lg shadow-2xl"
           />
          
@@ -16,8 +16,8 @@ const Discover = () => {
       <div className="hero">
         <div className="hero-content ">
           <img
-            
-            className=" rounded-lg shadow-2xl"
+            src={image2}
+            className=" rounded-lg shadow-2xl w-[495px]"
           />
         </div>
       </div>

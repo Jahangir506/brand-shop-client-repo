@@ -53,7 +53,7 @@ const Home = () => {
           data-aos-easing="linear"
           data-aos-duration="1500"
         >
-          {topProducts.slice(0, 12).map((topProduct) => (
+          {topProducts.slice(0, 8).map((topProduct) => (
             <TopSellingProducts
               key={topProduct._id}
               topProduct={topProduct}

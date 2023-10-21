@@ -1,9 +1,11 @@
+import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import Footer from "../../pages/Footer/Footer";
 import NewProductShow from "./NewProductShow";
 
 const NewProductAdded = () => {
-  const newProductsAdded = useLoaderData();
+  const LoadedNewProductsAdded = useLoaderData();
+  const [newProductsAdded, setNewProductsAdded] = useState(LoadedNewProductsAdded)
 
   return (
     <>
@@ -12,10 +14,12 @@ const NewProductAdded = () => {
           <NewProductShow
             key={newProduct._id}
             newProduct={newProduct}
+            newProductsAdded={newProductsAdded}
+            setNewProductsAdded={setNewProductsAdded}
           ></NewProductShow>
         ))}
       </div>
-      <div className="">
+      <div>
         <Footer></Footer>
       </div>
     </>
