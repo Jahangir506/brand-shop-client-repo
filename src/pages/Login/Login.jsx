@@ -106,10 +106,10 @@ const Login = () => {
 
   return (
     <>
-      <div className="hero bg-base-200 pt-48 pb-36">
+      <div className="hero bg-base-200 dark:bg-black/20 pt-48 pb-36">
         <div className="hero-content flex-col lg:flex-row-reverse w-full">
         
-          <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+          <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 ">
             <form onSubmit={handleLogin} className="card-body">
               <div className="form-control">
                 <label className="label">
@@ -157,7 +157,7 @@ const Login = () => {
                 <button className="btn btn-warning">Login</button>
               </div>
               <Link to="/register">
-                <div className="text-center flex justify-center items-center">
+                <div className="text-center dark:text-black flex justify-center items-center">
                   <span className="mr-1">Please create a </span>
                    <span className="text-blue-600 underline">account</span>
                     <span className="text-md flex items-center justify-center ml-2">

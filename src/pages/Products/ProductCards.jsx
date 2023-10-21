@@ -1,4 +1,3 @@
-import { FaEdit } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const ProductCards = ({ product }) => {
@@ -15,7 +14,7 @@ const ProductCards = ({ product }) => {
           <p className="mt-1">Price: {price}</p>
         </div>
         <Link to={`/productList/productDetails/${_id}`}>
-          <button className="btn glass w-full bg-black/5">See Details</button>
+          <button className="btn glass w-full bg-black/5 hover:bg-orange-300">See Details</button>
         </Link>
       </div>
     </>

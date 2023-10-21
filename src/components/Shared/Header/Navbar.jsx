@@ -109,13 +109,13 @@ const Navbar = () => {
             </Link>
           </div>
         </div>
-        <div className="w-full form-control">
+        {/* <div className="w-full form-control">
           <input
             type="text"
             placeholder="Search here"
             className="input input-bordered bg-orange-500/5 text-white input-sm w-full select-warning max-w-xs"
           />
-        </div>
+        </div> */}
         <div className="w-full navbar-end">
           <div className="flex justify-center items-center">
             <div className="navbar-center hidden lg:flex">
@@ -172,7 +172,7 @@ const Navbar = () => {
                       tabIndex={0}
                       className="menu dropdown-content z-[1] p-4 shadow bg-base-100 rounded-box w-40 mt-4"
                     >
-                      <div className="text-center">
+                      <div className="text-center dark:text-black">
                         {user && <p className="mb-3">{user?.displayName}</p>}
                         <Link to="/login">
                           <button

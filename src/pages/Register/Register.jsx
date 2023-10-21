@@ -106,7 +106,7 @@ const Register = () => {
 
   return (
     <>
-      <div className="hero bg-base-200 pt-36 pb-10">
+      <div className="hero bg-base-200 dark:bg-black/20 pt-36 pb-10">
         <div className="hero-content flex-col lg:flex-row-reverse w-full">
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
             <form onSubmit={handleRegister} className="card-body">
@@ -168,7 +168,7 @@ const Register = () => {
                 <button className="btn btn-warning">Register</button>
               </div>
               <Link to="/login">
-                <div className="text-center flex justify-center items-center">
+                <div className="text-center dark:text-black flex justify-center items-center">
                   <span className="mr-1">Already have an </span>
                    <span className="text-blue-600 underline">account</span>
                     <span className="text-md flex items-center justify-center ml-2">
