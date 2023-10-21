@@ -1,9 +1,13 @@
 
-## Event Management
+## Technology and Electronics - Just-Choice
 
-### Live Site : https://music-town-bd2023.netlify.app/
+### Live Site : https://brand-shop-6a8b1.web.app/
 
-### Code Link : https://github.com/programming-hero-web-course-4/b8a9-
+### client side Link :  https://github.com/programming-hero-web-course-4/b8a10-brandshop-client-side-Jahangir506
+
+### server side Link :  https://github.com/programming-hero-web-course-4/b8a10-brandshop-server-side-Jahangir506
+
+
 ## Added 5 Projects Features
 
 - Doing this project with top technology electronics
