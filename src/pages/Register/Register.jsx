@@ -17,7 +17,7 @@ const Register = () => {
       signInPopUp()
         .then((result) => {
           const user = result.user;
-            fetch('https://brand-shop-server-repo.vercel.app/productsuser', {
+            fetch('https://brand-shop-server-repo.vercel.app/user', {
                 method: "POST",
                 headers: {
                     'content-type': 'application/json',
@@ -81,7 +81,7 @@ const Register = () => {
             console.log(registerUser);
 
             const user = {name, email, password}
-            fetch('https://brand-shop-server-repo.vercel.app/productsuser', {
+            fetch('https://brand-shop-server-repo.vercel.app/user', {
                 method: "POST",
                 headers: {
                     'content-type': 'application/json',

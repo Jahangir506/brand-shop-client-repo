@@ -18,7 +18,7 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
-    fetch("https://brand-shop-server-repo.vercel.app/productsproductList")
+    fetch("https://brand-shop-server-repo.vercel.app/productList")
       .then((res) => res.json())
       .then((data) => {
         setTopProducts(data);

@@ -18,7 +18,7 @@ const NewProductShow = ({newProduct,newProductsAdded ,setNewProductsAdded}) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://brand-shop-server-repo.vercel.app/productsproducts/${id}`, {
+        fetch(`https://brand-shop-server-repo.vercel.app/products/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
