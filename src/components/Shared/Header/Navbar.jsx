@@ -77,7 +77,7 @@ const Navbar = () => {
 
   return (
     <div className="bg-green-900 py-3">
-      <div className="navbar w-full flex-row-reverse md:flex-row justify-between lg:justify-evenly mx-auto">
+      <div className="navbar w-full flex-row-reverse md:flex-row-reverse lg:flex-row justify-between lg:justify-evenly mx-auto">
         <div>
           <Link to="/">
             <img src={logo} alt="" className="w-32 lg:w-72" />
