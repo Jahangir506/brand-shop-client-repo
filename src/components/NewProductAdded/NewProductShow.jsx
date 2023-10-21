@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { AiFillDelete } from "react-icons/ai";
 import { FaEdit } from "react-icons/fa";
 import { Link } from "react-router-dom";
@@ -44,7 +45,7 @@ const NewProductShow = ({newProduct,newProductsAdded ,setNewProductsAdded}) => {
             <div>
               <h2 className="card-title">{name}</h2>
               <p className="text-lg">{brandName}</p>
-              <p>Click the button to watch on Jetflix app.</p>
+              <p>Price: {price}</p>
             </div>
             <div className="space-y-3 join join-vertical text-right">
               <Link to={`/updateProducts/${_id}`}>
@@ -70,5 +71,11 @@ const NewProductShow = ({newProduct,newProductsAdded ,setNewProductsAdded}) => {
     </>
   );
 };
+
+NewProductShow.propTypes = {
+  newProduct: PropTypes.object,
+  newProductsAdded: PropTypes.object,
+  setNewProductsAdded: PropTypes.object
+}
 
 export default NewProductShow;

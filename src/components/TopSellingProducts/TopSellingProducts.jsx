@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";
 
 const TopSellingProducts = ({ topProduct }) => {
@@ -25,5 +26,9 @@ const TopSellingProducts = ({ topProduct }) => {
     </>
   );
 };
+
+TopSellingProducts.propTypes = {
+  topProduct: PropTypes.object
+}
 
 export default TopSellingProducts;

@@ -3,7 +3,7 @@ import Footer from "../Footer/Footer";
 
 const ProductDetails = () => {
   const productDetails = useLoaderData();
-  const { _id, image, price, productName, rating } = productDetails || {};
+  const { image, price, productName, rating } = productDetails || {};
   console.log(productDetails);
   return (
     <>

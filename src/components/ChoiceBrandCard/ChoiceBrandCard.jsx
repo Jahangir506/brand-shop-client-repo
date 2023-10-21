@@ -2,6 +2,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import PropTypes from 'prop-types'
 
 const ChoiceBrandCard = ({ brand }) => {
   const { brandName, image} = brand || {};
@@ -28,5 +29,9 @@ const ChoiceBrandCard = ({ brand }) => {
     </>
   );
 };
+
+ChoiceBrandCard.propTypes = {
+  brand: PropTypes.object
+}
 
 export default ChoiceBrandCard;
