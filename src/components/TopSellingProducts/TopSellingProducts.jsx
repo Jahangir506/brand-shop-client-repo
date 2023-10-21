@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";
 
 const TopSellingProducts = ({ topProduct }) => {
-  const {_id, image, productName, price } = topProduct || {};
+  const {_id, image, productName, price, rating } = topProduct || {};
 
   return (
     <>
@@ -20,6 +20,7 @@ const TopSellingProducts = ({ topProduct }) => {
             <p className="mt-1">
               {price}
             </p>
+            <p>{rating}</p>
           </div>
         </div>
       </Link>
