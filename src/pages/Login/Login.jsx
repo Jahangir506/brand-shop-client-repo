@@ -19,7 +19,7 @@ const Login = () => {
     signInPopUp()
       .then((result) => {
         const user = result.user;
-        fetch('https://brand-shop-server-repo.vercel.app/user', {
+        fetch('https://brand-shop-server-repo.vercel.app/productsuser', {
                 method: "POST",
                 headers: {
                     'content-type': 'application/json',
@@ -80,7 +80,7 @@ const Login = () => {
       .then((result) => {
         const loginUser = result.user;
         console.log(loginUser);
-        fetch('https://brand-shop-server-repo.vercel.app/user', {
+        fetch('https://brand-shop-server-repo.vercel.app/productsuser', {
                 method: "POST",
                 headers: {
                     'content-type': 'application/json',

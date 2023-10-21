@@ -20,7 +20,7 @@ const UpdateProducts = () => {
 
 
     fetch(
-      `http://localhost:5007/products/${_id}`,
+      `https://brand-shop-server-repo.vercel.app/productsproducts/${_id}`,
       {
         method: "PUT",
         headers: {

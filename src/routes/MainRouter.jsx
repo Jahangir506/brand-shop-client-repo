@@ -52,7 +52,7 @@ const MainRouter = createBrowserRouter([
             {
                 path: '/updateProducts/:id',
                 element: <PrivateRouter><UpdateProducts></UpdateProducts></PrivateRouter>,
-                loader: ({params}) => fetch(`http://localhost:5007/products/${params.id}`)
+                loader: ({params}) => fetch(`https://brand-shop-server-repo.vercel.app/products/${params.id}`)
             },
             {
                 path: '/addedProducts',

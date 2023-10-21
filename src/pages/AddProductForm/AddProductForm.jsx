@@ -18,7 +18,7 @@ const AddProductForm = () => {
     console.log(addNewProducts);
 
     fetch(
-      "http://localhost:5007/products",
+      "https://brand-shop-server-repo.vercel.app/products",
       {
         method: "POST",
         headers: {
